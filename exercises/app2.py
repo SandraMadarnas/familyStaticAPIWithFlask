@@ -16,15 +16,11 @@ CORS(app)
 jackson_family = FamilyStructure("Jackson")
 
 # Handle/serialize errors like a JSON object
-
-
 @app.errorhandler(APIException)
 def handle_invalid_usage(error):
     return jsonify(error.to_dict()), error.status_code
 
 # generate sitemap with all your endpoints
-
-
 @app.route('/')
 def sitemap():
     return generate_sitemap(app)
@@ -73,7 +69,7 @@ def delete_member(member_id):
 def add_member():
     data = request.get_json()
     new_member = jackson_family.add_member(data)
-    return jsonify({"msg": "El miembro se creo con exito"}), 200
+    return jsonify({"msg": "El miembro se creo con éxito"}), 200
 
 
 # this only runs if `$ python src/app.py` is executed
